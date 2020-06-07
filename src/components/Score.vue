@@ -23,7 +23,7 @@ export default {
         display: flex;
         justify-content: space-between;
         color: white;
-        font-size: 25px;
+        font-size: 23px;
         font-weight: 500;
         width: 90%;
         padding: 10px 20px;

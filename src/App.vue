@@ -19,11 +19,11 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['startGame'])
+    ...mapMutations(['startGame', 'toggleModal'])
   },
 
   created() {
-    this.startGame()
+    this.toggleModal()
   }
 
 }

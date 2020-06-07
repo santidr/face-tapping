@@ -19,7 +19,7 @@ export default {
     },
 
     computed: {
-        ...mapState(['intervalId', 'score'])
+        ...mapState(['intervalId'])
     },
 
     methods: {

@@ -6,12 +6,13 @@
 
         <transition name="slide" appear>
             <div class="modal" v-if="showModal">
-                <h1>Score: {{ score }}</h1>
+                <h2 v-show="score > 0">Score: {{ score }}</h2>
                 
                 <button class="button"
                 @click="replay"
                 >
-                    Replay
+                    <span v-if="score > 0">Replay</span>
+                    <span v-else>Play</span>
                 </button>
             </div>
         </transition>
@@ -54,7 +55,6 @@ export default {
         
         color: #FFF;
         font-size: 18px;
-        font-weight: 700;
         
         box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
     }
@@ -75,6 +75,8 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 99;
+
+        font-weight: 400;
         
         width: 60%;
         max-width: 400px;
@@ -84,10 +86,10 @@ export default {
         padding: 25px;
     }
  
-    .modal h1 {
+    .modal h2 {
         color: #222;
-        font-size: 32px;
-        margin-top: 0;
+        font-size: 28px;
+        font-weight: 400;
         margin-bottom: 15px;
     }
 
