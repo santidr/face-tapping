@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Playground />
+    <Modal />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Playground from '@/components/Playground'
+import Modal from '@/components/Modal'
+
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Playground,
+    Modal
+  },
+
+  methods: {
+    ...mapMutations(['startGame'])
+  },
+
+  created() {
+    this.startGame()
   }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+  }
 </style>
