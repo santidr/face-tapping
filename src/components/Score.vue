@@ -1,6 +1,7 @@
 <template>
     <div id="score-container">
         <span>Score: {{ score }}</span>
+        <span>Chances: {{ chances }}</span>
     </div>
 </template>
 
@@ -11,7 +12,7 @@ export default {
     name: 'Score',
 
     computed: {
-        ...mapState(['score'])
+        ...mapState(['score', 'chances'])
     }
 }
 </script>
@@ -19,10 +20,12 @@ export default {
 <style scoped>
     #score-container {
         position: fixed;
+        display: flex;
+        justify-content: space-between;
         color: white;
         font-size: 25px;
         font-weight: 500;
-        width: 100%;
+        width: 90%;
         padding: 10px 20px;
     }
 </style>

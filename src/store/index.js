@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     score: 0,
+    chances: 3,
     showModal: false,
     intervalId: 0,
 
@@ -16,18 +17,33 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    increment(state) {
+    incrementScore(state) {
       state.score++
+    },
+
+    restoreChances(state) {
+      state.chances = 3
     },
 
     toggleModal(state) {
       state.showModal = !state.showModal
     },
 
+    GAME_OVER(state) {
+      clearInterval(state.intervalId)
+    },
+
     startGame(state) {
       state.intervalId = setInterval(() => {
         state.top = Math.floor(Math.random() * state.y) + 48
         state.left = Math.floor(Math.random() * state.x)
+
+        if (state.chances > 0) state.chances--
+        else {
+          clearInterval(state.intervalId)
+          state.showModal = !state.showModal
+        }
+
       }, 1000)
 
       state.score = 0
@@ -35,6 +51,10 @@ export default new Vuex.Store({
   },
 
   actions: {
+    gameOver(state) {
+      state.commit('GAME_OVER')
+      state.commit('toggleModal')
+    }
   },
 
   modules: {

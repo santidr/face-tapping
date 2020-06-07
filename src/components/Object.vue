@@ -24,10 +24,11 @@ export default {
     },
 
     methods: {
-        ...mapMutations(['increment', 'startGame']),
+        ...mapMutations(['incrementScore', 'restoreChances', 'startGame']),
 
         shotObject() {
-            this.increment()
+            this.incrementScore()
+            this.restoreChances()
         }
     }
 }

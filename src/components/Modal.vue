@@ -29,10 +29,11 @@ export default {
     },
 
     methods: {
-        ...mapMutations(['toggleModal', 'startGame']),
+        ...mapMutations(['toggleModal', 'startGame', 'restoreChances']),
 
         replay() {
             this.toggleModal()
+            this.restoreChances()
             this.startGame()
         }
     }
