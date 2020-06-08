@@ -67,6 +67,7 @@ export default {
         bottom: 0;
         z-index: 98;
         background-color: rgba(0, 0, 0, 0.5);
+        height: 100vh;
     }
 
     .modal {
