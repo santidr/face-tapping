@@ -19,7 +19,7 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['startGame', 'toggleModal'])
+    ...mapMutations(['toggleModal'])
   },
 
   created() {

@@ -6,7 +6,8 @@
 
         <transition name="slide" appear>
             <div class="modal" v-if="showModal">
-                <h2 v-show="score > 0">Score: {{ score }}</h2>
+                <h2 v-if="score > 0">Score: {{ score }}</h2>
+                <h4 v-else>Tap on the little face to get the highest score!</h4>
                 
                 <button class="button"
                 @click="replay"
@@ -92,6 +93,10 @@ export default {
         font-size: 28px;
         font-weight: 400;
         margin-bottom: 15px;
+    }
+
+    .modal h4 {
+        text-align: center;
     }
 
     .fade-enter-active,
