@@ -1,12 +1,12 @@
 <template>
     <div id="playground" @click.self="gameOver">
-        <Object />
+        <Face />
         <Score />
     </div>
 </template>
 
 <script>
-import Object from '@/components/Object'
+import Face from '@/components/Face'
 import Score from '@/components/Score'
 
 import { mapState, mapActions } from 'vuex'
@@ -14,7 +14,7 @@ import { mapState, mapActions } from 'vuex'
 export default {
     name: 'Playground',
     components: {
-        Object,
+        Face,
         Score
     },
 

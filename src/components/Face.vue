@@ -1,5 +1,5 @@
 <template>
-    <div id="object"
+    <div id="face"
         :style="{top: top+'px', left: left+'px'}"
         @click="shotObject"
         >
@@ -10,8 +10,11 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 
+var scream = new Audio(require('@/assets/audio/ay.mp3'))
+scream.volume = 0.4
+
 export default {    
-    name: 'Object',
+    name: 'Face',
 
     data() {
         return {
@@ -27,6 +30,7 @@ export default {
         ...mapMutations(['incrementScore', 'restoreChances', 'startGame']),
 
         shotObject() {
+            scream.play()
             this.incrementScore()
             this.restoreChances()
         }
@@ -35,13 +39,13 @@ export default {
 </script>
 
 <style scoped>
-    #object {
+    #face {
         position: absolute;
         height: 105px;
         width: 80px;
     }
 
-    #object img {
+    #face img {
         width: 100%;
     }
 </style>
