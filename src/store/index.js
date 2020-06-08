@@ -13,7 +13,7 @@ export default new Vuex.Store({
     top: 0,
     left: 0,
     x: window.innerWidth - 80,
-    y: window.innerHeight - 135,
+    y: window.innerHeight - 140,
   },
 
   mutations: {
