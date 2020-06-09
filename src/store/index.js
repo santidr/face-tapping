@@ -46,7 +46,7 @@ export default new Vuex.Store({
 
         if (state.chances > 0) {
           state.chances--
-          state.changeSpeed -= 20
+          state.changeSpeed -= 10
         } else {
           clearInterval(state.intervalId)
           state.speed = 1500

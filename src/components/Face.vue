@@ -3,14 +3,14 @@
         :style="{top: top+'px', left: left+'px'}"
         @click="shotObject"
         >
-        <img src="@/assets/obj-img.png" alt="">
+        <img src="@/assets/face.png" alt="">
     </div>
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex'
 
-var scream = new Audio(require('@/assets/audio/ay.mp3'))
+var scream = new Audio(require('@/assets/ay.mp3'))
 scream.volume = 0.4
 
 export default {    
