@@ -19,11 +19,14 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['toggleModal'])
+    ...mapMutations(['toggleModal', 'setMaxScore'])
   },
 
   created() {
     this.toggleModal()
+
+    let maxScoreStored = localStorage.getItem('ls-maxScore')
+    if (maxScoreStored !== null) this.setMaxScore(maxScoreStored)
   }
 
 }

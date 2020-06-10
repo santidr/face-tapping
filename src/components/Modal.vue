@@ -6,7 +6,10 @@
 
         <transition name="slide" appear>
             <div class="modal" v-if="showModal">
-                <h2 v-if="score > 0">Score: {{ score }}</h2>
+                <div v-if="score > 0">
+                    <h2>Score: {{ score }}</h2>
+                    <h4>Your max score: {{ maxScore }}</h4>
+                </div>
                 <h4 v-else>Tap on the little face to get the highest score!</h4>
                 
                 <button class="button"
@@ -27,7 +30,7 @@ export default {
     name: 'Modal',
 
     computed: {
-        ...mapState(['score', 'showModal'])
+        ...mapState(['score', 'maxScore', 'showModal'])
     },
 
     methods: {
@@ -92,10 +95,14 @@ export default {
         color: #222;
         font-size: 28px;
         font-weight: 400;
-        margin-bottom: 15px;
+        margin: 10px 0;
     }
 
-    .modal h4 {
+    .modal > div > h4 {
+        margin-top: 0;
+    }
+
+    .modal > h4 {
         text-align: center;
     }
 

@@ -11,6 +11,7 @@ export default new Vuex.Store({
     intervalId: 0,
     speed: 1500,
     changeSpeed: 0,
+    maxScore: 0,
 
     top: 0,
     left: 0,
@@ -21,6 +22,10 @@ export default new Vuex.Store({
   mutations: {
     incrementScore(state) {
       state.score++
+    },
+
+    setMaxScore(state, value) {
+      state.maxScore = value
     },
 
     restoreChances(state) {
@@ -34,6 +39,11 @@ export default new Vuex.Store({
     GAME_OVER(state) {
       clearInterval(state.intervalId)
       state.speed = 1500
+
+      if (state.score > state.maxScore) {
+        state.maxScore = state.score
+        localStorage.setItem('ls-maxScore', state.maxScore)
+      }
     },
 
     startGame(state) {
@@ -46,7 +56,7 @@ export default new Vuex.Store({
 
         if (state.chances > 0) {
           state.chances--
-          state.changeSpeed -= 10
+          state.changeSpeed -= 15
         } else {
           clearInterval(state.intervalId)
           state.speed = 1500
